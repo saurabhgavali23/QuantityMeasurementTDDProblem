@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testcasesformeasurement.TestQuantityMeasurement" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-27T05:58:16" hostname="admin1-HP-EliteBook-Folio-9480m" time="0.001">
+  <properties/>
+  <testcase name="whenGivenZeroFeet_shouldReturnEqualFeet" classname="testcasesformeasurement.TestQuantityMeasurement" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
