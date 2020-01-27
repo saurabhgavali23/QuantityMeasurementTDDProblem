@@ -4,15 +4,28 @@ import java.util.Objects;
 
 public class QuantityMeasurement {
 
-    private final int value;
+    public int value;
+    public Unit unit;
 
-    public QuantityMeasurement(int value) {
-            this.value = value;
+    public enum Unit {
+        FEET, INCH;
     }
 
-    public int getFeetValue() {
+    public QuantityMeasurement(Unit unit, int value) throws QuantityMeasurementException {
+        try {
+            this.unit = unit;
+            this.value = value;
+        } catch (NullPointerException e) {
+            throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_VALUE, "Null_Value");
+        }
+    }
 
-        return value * 0;
+    public int getConversionValue() {
+        if (Unit.FEET.equals(unit))
+            return this.value;
+        if (Unit.INCH.equals(unit))
+            return this.value;
+        return 0;
     }
 
     @Override
@@ -20,11 +33,12 @@ public class QuantityMeasurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        return value == that.value;
+        return value == that.value &&
+                unit == that.unit;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value);
+        return Objects.hash(value, unit);
     }
 }

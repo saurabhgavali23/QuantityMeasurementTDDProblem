@@ -2,8 +2,7 @@ package testcasesformeasurement;
 
 import org.junit.Assert;
 import org.junit.Test;
-import quantitymeasurement.Feet;
-import quantitymeasurement.Inch;
+import quantitymeasurement.QuantityMeasurement;
 import quantitymeasurement.QuantityMeasurementException;
 
 public class TestQuantityMeasurement {
@@ -11,16 +10,16 @@ public class TestQuantityMeasurement {
     // Test Cases For Feet
     @Test
     public void whenGivenZeroFeet_shouldReturnEqualFeet() throws QuantityMeasurementException {
-        Feet value1 = new Feet(0);
-        Feet value2 = new Feet(0);
-        Assert.assertEquals(value1, value2);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(QuantityMeasurement.Unit.FEET, 0);
+        int value = quantityMeasurement.getConversionValue();
+        Assert.assertEquals(0, value);
     }
 
     @Test
     public void whenGivenNullFeet_shouldReturnNull() {
         try {
-            Feet value1 = new Feet(null);
-            Feet value2 = new Feet(null);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement(null, 0);
+            quantityMeasurement.getConversionValue();
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_VALUE, e.type);
         }
@@ -28,26 +27,24 @@ public class TestQuantityMeasurement {
 
     @Test
     public void whenGivenFeet_checkReferenceType_shouldReturnEqual() throws QuantityMeasurementException {
-        Feet value1 = new Feet(0);
-        Feet value2 = new Feet(2);
-        Assert.assertTrue(value1 == value1);
-        Assert.assertTrue(value2 == value2);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(QuantityMeasurement.Unit.FEET, 0);
+        int value = quantityMeasurement.getConversionValue();
+        Assert.assertTrue(value == value);
     }
 
     @Test
     public void whenGivenFeet_checkValue_shouldReturnEqual() throws QuantityMeasurementException {
-        Feet value1 = new Feet(1);
-        Feet value2 = new Feet(2);
-        Assert.assertTrue(value1.equals(value1));
-        Assert.assertTrue(value2.equals(value2));
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(QuantityMeasurement.Unit.FEET, 0);
+        int value = quantityMeasurement.getConversionValue();
+        Assert.assertEquals(value, value);
     }
 
     // Test Cases For Inch
     @Test
     public void whenGivenNullInch_shouldReturnNull() {
         try {
-            Inch value1 = new Inch(null);
-            Inch value2 = new Inch(null);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement(null, 0);
+            quantityMeasurement.getConversionValue();
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_VALUE, e.type);
         }
@@ -55,17 +52,15 @@ public class TestQuantityMeasurement {
 
     @Test
     public void whenGivenInch_checkReferenceType_shouldReturnEqual() throws QuantityMeasurementException {
-        Inch value1 = new Inch(0);
-        Inch value2 = new Inch(2);
-        Assert.assertTrue(value1 == value1);
-        Assert.assertTrue(value2 == value2);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(QuantityMeasurement.Unit.INCH, 0);
+        int value = quantityMeasurement.getConversionValue();
+        Assert.assertTrue(value == value);
     }
 
     @Test
     public void whenGivenInch_checkValue_shouldReturnEqual() throws QuantityMeasurementException {
-        Inch value1 = new Inch(1);
-        Inch value2 = new Inch(2);
-        Assert.assertTrue(value1.equals(value1));
-        Assert.assertTrue(value2.equals(value2));
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(QuantityMeasurement.Unit.INCH, 0);
+        int value = quantityMeasurement.getConversionValue();
+        Assert.assertEquals(value, value);
     }
 }
