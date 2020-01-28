@@ -75,4 +75,12 @@ public class TestQuantityMeasurement {
         LengthConversion length2 = new LengthConversion(LengthConversion.Unit.INCH, 0);
         Assert.assertTrue(length1.getClass().equals(length2.getClass()));
     }
+
+    // Test Cases For Inch And Feet To Return equals 0
+    @Test
+    public void whenGivenZeroInchAndZeroFeet_shouldReturnEqual() throws QuantityMeasurementException {
+        LengthConversion inch = new LengthConversion(LengthConversion.Unit.INCH, 0);
+        LengthConversion feet = new LengthConversion(LengthConversion.Unit.FEET, 0);
+        Assert.assertTrue(inch.equals(feet));
+    }
 }

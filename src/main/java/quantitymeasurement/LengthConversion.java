@@ -1,5 +1,7 @@
 package quantitymeasurement;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class LengthConversion {
@@ -33,8 +35,8 @@ public class LengthConversion {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LengthConversion that = (LengthConversion) o;
-        return value == that.value &&
-                unit == that.unit;
+        return value == that.value ||
+                unit == that.unit && Unit.FEET.equals(Unit.INCH);
     }
 
     @Override
