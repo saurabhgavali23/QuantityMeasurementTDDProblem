@@ -83,4 +83,40 @@ public class TestQuantityMeasurement {
         LengthConversion feet = new LengthConversion(LengthConversion.Unit.FEET, 0);
         Assert.assertTrue(inch.equals(feet));
     }
+
+    // Test Case For 1 Feet Is Not Equal To 1 Inch
+    @Test
+    public void whenGivenOneFeet_shouldNotReturnOneInch() throws QuantityMeasurementException {
+        LengthConversion length1 = new LengthConversion(LengthConversion.Unit.FEET, 1);
+        int inch = length1.getConversionValue();
+        LengthConversion length2 = new LengthConversion(LengthConversion.Unit.INCH,1);
+        int feet = length2.getConversionValue();
+        Assert.assertTrue(feet!=inch);
+    }
+
+    // Test Case For 1 Inch Is Not Equal to 1 Feet
+    @Test
+    public void whenGivenOneInch_shouldNotReturnOneFeet() throws QuantityMeasurementException {
+        LengthConversion length1 = new LengthConversion(LengthConversion.Unit.INCH, 1);
+        int inch = length1.getConversionValue();
+        LengthConversion length2 = new LengthConversion(LengthConversion.Unit.FEET, 1);
+        int feet = length2.getConversionValue();
+        Assert.assertTrue(inch != feet);
+    }
+
+    // Test Case For 1 Feet Is Equal to 12 Inch
+    @Test
+    public void whenGivenOneFeet_shouldReturnTwelveInch() throws QuantityMeasurementException {
+        LengthConversion length1 = new LengthConversion(LengthConversion.Unit.FEET,1 );
+        int inch = length1.getConversionValue();
+        Assert.assertTrue(12 == inch);
+    }
+
+    // Test Case For 12 Inch Is Equal to 1 Feet
+    @Test
+    public void whenGivenTwelveInch_shouldReturnOneFeet() throws QuantityMeasurementException {
+        LengthConversion length1 = new LengthConversion(LengthConversion.Unit.INCH, 12);
+        int feet = length1.getConversionValue();
+        Assert.assertTrue(1 == feet);
+    }
 }
